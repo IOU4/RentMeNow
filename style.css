@@ -1,0 +1,269 @@
+:root {
+  --primary: #0880AE;
+  --secondary: #F7F3E8;
+  --light: #EBF4F8;
+  --black: #2C2738;
+  --box-shadow: 0 .2em 2em -0.9em var(--black);
+  font-size: 26px;
+  font-family: 'IBM Plex Sans';
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  margin-left: auto;
+  background-color: var(--secondary);
+  color: #2C2738;
+  padding-top: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
+  display: flex;
+  gap: 2em;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 960px;
+  position: sticky;
+  top : 0rem;
+  backdrop-filter: blur(14px);
+  flex-grow: 1;
+  padding: 1em;
+}
+
+header .logo {
+  width: 6em;
+  height: 2.4em;
+  background-image: url('/home/emadou/Downloads/logo.png');
+  background-position: center;
+  background-size: cover;
+}
+
+header span {
+  padding: 1em;
+}
+
+header span:hover {
+  box-shadow: var(--box-shadow);
+}
+
+.login {
+  margin-left: auto;
+}
+
+.menu-icon-div {
+  display: none;
+  width: 1.4em;
+  margin-left: auto;
+  padding-top: auto;
+}
+
+.button-div {
+  margin-top: 2em;
+}
+
+.btn {
+  border-style: none;
+  width: 7em;
+  height: 3em;
+  background-color: var(--primary);
+  border-radius: 6px;
+  color: var(--secondary);
+  text-align: center;
+  box-shadow: var(--box-shadow);
+}
+
+.btn-v {
+  font-weight: bold;
+  background-color: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+  color: var(--black);
+  margin-left: auto;
+  font-size: .6em;
+}
+
+
+@media (max-width: 960px) {
+  body {
+    font-size: 20px;
+    padding: 1em .5em 0 .5em;
+  }
+  header {
+    min-width: 94%;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .menu-icon-div {
+    display: block;
+  }
+
+  h2 {
+    font-size: 1em;
+    white-space: wrap;
+  }
+
+  header .btn {
+    height: 2em;
+    width: 5em;
+  }
+}
+
+/* ------------------------------------------------------ */
+
+.first-section {
+  display: grid;
+  grid-template-columns: .6fr 1.4fr;
+}
+
+.car {
+  background-image: url('./assets/images/black-r8-audi.png');
+  background-position: left;
+  background-size: cover;
+  grid-row:  span 2;
+  z-index: -1;
+}
+
+.title > h2 {
+  white-space: nowrap;
+  width: 9em;
+}
+
+p {
+  font-size: .5em;
+}
+
+.first-section .button-div {
+  margin: 4em 0;
+}
+
+.second-section {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.s2-container {
+  display: flex;
+  gap: 2em;
+}
+
+.s2-item , .s3-item{
+  padding: 1em;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.second-section svg {
+  width: 4em;
+  height: 5em; 
+}
+
+.s2-item:hover, .s3-item {
+  box-shadow: 0 .2em 2em -0.9em var(--black);
+  border-radius: .5em;
+}
+
+.third-section {
+}
+
+.s3-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: .5em;
+}
+
+.s3-item span {
+  font-size: .6em;
+  margin-top: auto;
+  color: var(--primary);
+}
+
+.s3-item .img-container {
+  width: 90%;
+  height: 4.5em;
+  background-size: cover;
+  background-position: center;
+}
+.s3-item:nth-child(1)  .img-container{
+  background-image: url('./assets/images/yellow-mini-cooper.png');
+}
+.s3-item:nth-child(2)  .img-container{
+  background-image: url('./assets/images/black-lamborgini.png');
+}
+.s3-item:nth-child(3)  .img-container{
+  background-image: url('./assets/images/black-bmw.png');
+}
+.s3-item:nth-child(4)  .img-container{
+  background-image: url('./assets/images/red-audi.png');
+}
+
+footer {
+  width: 90%;
+  margin-top: 2em;
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  align-items: center;
+  border-radius: .3em;
+  background-color: var(--light);
+}
+
+footer span {
+  font-size: .5em;
+}
+
+a {
+  text-decoration: none;
+  color: var(--black);
+}
+
+@media (max-width: 960px) {
+  .car {
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: scale(2);
+    position: relative;
+    left: -45%;
+  }
+  .first-section p {
+    width: 150%;
+    background-color: #f7f3e87d;
+  }
+  .s2-container  {
+    flex-direction: column;
+    max-width: 20em;
+  }
+  .s2-item {
+    box-shadow: var(--box-shadow);
+    border-radius: .3em;
+  }
+  .s3-container {
+    grid-template-columns: 1fr;
+  }
+  .s3-item .img-container {
+    width: 64%;
+    height: 5em;
+  }
+  footer span { 
+    font-size: .2em;
+  }
+
+}
