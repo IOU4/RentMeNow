@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
 :root {
   --primary: #0880AE;
   --secondary: #F7F3E8;
@@ -5,7 +6,7 @@
   --black: #2C2738;
   --box-shadow: 0 .2em 2em -0.9em var(--black);
   font-size: 26px;
-  font-family: 'IBM Plex Sans';
+  font-family: 'Oswald', sans-serif;
 }
 
 body {
@@ -103,11 +104,6 @@ header span:hover {
   header {
     min-width: 94%;
   }
-
-  .menu {
-    display: none;
-  }
-
   .menu-icon-div {
     display: block;
   }
@@ -116,7 +112,6 @@ header span:hover {
     font-size: 1em;
     white-space: wrap;
   }
-
   header .btn {
     height: 2em;
     width: 5em;
@@ -181,9 +176,6 @@ p {
   border-radius: .5em;
 }
 
-.third-section {
-}
-
 .s3-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -218,10 +210,11 @@ p {
 footer {
   width: 90%;
   margin-top: 2em;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-between;
   padding: 1em;
-  align-items: center;
+  place-items: center;
   border-radius: .3em;
   background-color: var(--light);
 }
@@ -236,6 +229,21 @@ a {
 }
 
 @media (max-width: 960px) {
+  header .menu {
+    display: none;
+    flex-direction: column;
+    padding: 3em 1em;
+    position: absolute;
+    background-color: var(--light);
+    gap: 2em;
+    align-items: flex-start;
+    top: 4.3em;
+    right: 1.2em;
+    box-shadow: var(--box-shadow);
+    border-radius: .3em;
+    font-size: 1em;
+  }
+
   .car {
     background-size: contain;
     background-repeat: no-repeat;
@@ -265,5 +273,33 @@ a {
   footer span { 
     font-size: .2em;
   }
+}
 
+.form-container {
+  display: flex;  
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.input-field {
+  border-style: none;
+  width: 80vw;
+  height: 3em;
+  box-shadow: var(--box-shadow);
+  border-radius: .3em;
+  padding: 1em;
+}
+
+.text-area {
+  height: 14em; 
+}
+
+.form-container .button-div {
+  margin-top: 0;
+}
+
+main {
+  text-align: center;
 }
