@@ -39,7 +39,7 @@ header {
 header .logo {
   width: 6em;
   height: 2.4em;
-  background-image: url('/home/emadou/Downloads/logo.png');
+  background-image: url('./assets/logo.png');
   background-position: center;
   background-size: cover;
 }
