@@ -7,6 +7,8 @@
   --box-shadow: 0 .2em 2em -0.9em var(--black);
   font-size: 26px;
   font-family: 'Oswald', sans-serif;
+  width: 100vw;
+  box-sizing: border-box;
 }
 
 body {
@@ -15,9 +17,8 @@ body {
   margin-left: auto;
   background-color: var(--secondary);
   color: #2C2738;
-  padding-top: 2em;
-  padding-left: 2em;
-  padding-right: 2em;
+  padding: 2em;
+  padding-bottom: 0;
   display: flex;
   gap: 2em;
   flex-direction: column;
@@ -58,6 +59,7 @@ header span:hover {
 }
 
 .menu-icon-div {
+  display: none;
   width: 1.4em;
   margin-left: auto;
   padding-top: auto;
@@ -204,7 +206,7 @@ p {
 }
 
 .img-container {
-  width: 100%;
+  width: 90%;
   height: 4.5em;
   background-size: cover;
   background-position: center;
@@ -244,21 +246,25 @@ a {
 
 @media (max-width: 960px) {
   header .menu {
-    transform: translateX(115%);
-    transition: transform .5s ease-in;
+    transition: width .5s ease-in;
     flex-direction: column;
-    padding: 3em 1em;
-    position: absolute;
+    position: fixed;
     background-color: var(--light);
-    gap: 2em;
     align-items: flex-start;
     top: 4.3em;
-    right: 1.2em;
+    right: .5em;
     box-shadow: var(--box-shadow);
     border-radius: .3em;
     font-size: 1em;
+    z-index: 1;
+    height: 18em;
+    overflow: hidden;
+    justify-content: space-evenly;
+    width: 0;
   }
-
+  .menu > *{
+    margin-left: 1em;
+  }
   .first-section > * {
     width: 100%;
   }
