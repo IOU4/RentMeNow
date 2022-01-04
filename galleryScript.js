@@ -3,7 +3,7 @@ const data = {
     {
       "id": 1,
       "name": "Cruiser",
-      "image": "./asgets/images/gta-moto.jpg",
+      "image": "./assets/images/gta-moto.jpg",
       "brand": "Bently",
       "type" : "moto",
       "boite-a-vitess": "automatique",
@@ -13,7 +13,7 @@ const data = {
     {
       "id": 2,
       "name": "old BMW",
-      "image": "./asgets/images/old-bmw.jpg",
+      "image": "./assets/images/old-bmw.jpg",
       "brand": "renult",
       "type" : "berline",
       "boite-a-vitess": "automatique",
@@ -23,7 +23,7 @@ const data = {
     {
       "id": 3,
       "name": "Model s",
-      "image": "./asgets/images/tesla.jpg",
+      "image": "./assets/images/tesla.jpg",
       "brand": "Tesla",
       "type" : "citadin",
       "boite-a-vitess": "manuelle",
@@ -33,7 +33,7 @@ const data = {
     {
       "id": 4,
       "name": "balck r8",
-      "image": "./asgets/images/black-audi.jpg",
+      "image": "./assets/images/black-audi.jpg",
       "brand": "audi",
       "type" : "berline",
       "boite-a-vitess": "automatique",
@@ -43,7 +43,7 @@ const data = {
     {
       "id": 5,
       "name": "mini Cooper",
-      "image": "./asgets/images/electric-mini.jpg",
+      "image": "./assets/images/electric-mini.jpg",
       "brand": "cooper",
       "type" : "compact",
       "boite-a-vitess": "manuelle",
@@ -53,7 +53,7 @@ const data = {
     {
       "id": 6,
       "name": "tmax",
-      "image": "./asgets/images/tmax.jpg",
+      "image": "./assets/images/tmax.jpg",
       "brand": "tmax",
       "type" : "moto",
       "boite-a-vitess": null,
@@ -63,7 +63,7 @@ const data = {
     {
       "id": 7,
       "name": "big-truck",
-      "image": "./asgets/images/truck-big.jpg",
+      "image": "./assets/images/truck-big.jpg",
       "brand": "volvo",
       "type" : "camion",
       "boite-a-vitess": "automatique",
@@ -73,7 +73,7 @@ const data = {
     {
       "id": 8,
       "name": "mutshi",
-      "image": "./asgets/images/mutshi.jpg",
+      "image": "./assets/images/mutshi.jpg",
       "brand": "audi",
       "type" : "utilitaire",
       "boite-a-vitess": "manuelle",
@@ -83,7 +83,7 @@ const data = {
     {
       "id": 9,
       "name": "Snow Mercedes",
-      "image": "./asgets/images/snow-mercedes.jpg",
+      "image": "./assets/images/snow-mercedes.jpg",
       "brand": "mercedes",
       "type" : "Berline",
       "boite-a-vitess": "automatique",
@@ -146,10 +146,10 @@ const availablitys = {
 }
 
 if(document.title == 'RMN-Gallery'){
-  let GalleryContainer = document.querySelector('.gallery-grid')
+  let GalleryContainer = document.querySelector('.gallery-container')
   data.vehicles.forEach(item => {
     let galleryItem = document.createElement('div')
-    galleryItem.getAttribute('class', 'gallery-item')
+    galleryItem.setAttribute('class', 'gallery-item')
     galleryItem.append(document.createElement('h5'), document.createElement('span'), document.createElement('div'))
     galleryItem.firstChild.innerHTML = item.name
     galleryItem.childNodes[1].innerHTML = `${item.type} - ${item.brand} - ${item["boite-a-vitess"]} - ${item['carburant']}`
