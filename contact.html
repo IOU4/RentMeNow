@@ -3,7 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0\">
-  <title>Rent Me Now</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="webiste to rent cars online" />
+  <meta name="keywords" content="cars, rent, online, trucks, new , bike , sport car" />
+  <meta name="author" content="Emad UO" />
+  <title>RentMeNow-contact</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -29,11 +33,12 @@
       <span>Ipsum doloremque inventore omnis dolores aliquam Rerum dolore ducimus sunt eveniet magnam error ipsam asperiores? Fugit deserunt rem magni quod doloribus? Perferendis laboriosam dolor officia nesciunt ipsam Repudiandae quia animi!</span>
     </div>
     <div class="form-container">
-      <input class="input-field" id="name" type="text" placeholder="  Name" required />
-      <input class="input-field" type="email" id="email" placeholder="  Email" name="email" required /> 
+      <input class="input-field" type="text" placeholder="  Name" name="name" required />
+      <input class="input-field" type="email" placeholder="  Email" name="email" required /> 
+      <input class="input-field" type="text" placeholder="  Subject" name="subject" required /> 
       <textarea class='input-field text-area' name="message" id="message" placeholder=" Enter your message"></textarea>
       <div class="button-div">
-        <button class='btn'>Send</button>
+        <input type="submit" name="submit" value='submit' class='btn'>
         <button class='btn btn-v'>Rent a car</button>
       </div>
     </div>
@@ -48,5 +53,6 @@
     <a href="#"><span>Terms & Coditions</span></a>
   </footer>
   <script src="./script.js" ></script>
+  <script src="./contactScript.js" ></script>
 </body>
 </html>
