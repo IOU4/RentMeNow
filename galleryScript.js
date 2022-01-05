@@ -17,7 +17,7 @@ const data = {
       "brand": "renult",
       "type" : "berline",
       "boite-a-vitess": "automatique",
-      "carburant": "diesle",
+      "carburant": "diesel",
       "price":  30
     }, 
     {
@@ -57,7 +57,7 @@ const data = {
       "brand": "tmax",
       "type" : "moto",
       "boite-a-vitess": null,
-      "carburant": "diesle",
+      "carburant": "diesel",
       "price":  20
     }, 
     {
@@ -103,14 +103,14 @@ const priceList = {
 }
 
 const carburantPercentage = {
-  'electric': 0.05,
-  'hybrid': 0.09,
-  'essence': 0.14,
-  'diesel': 0.21
+  'electric': 5,
+  'hybrid': 9,
+  'essence': 14,
+  'diesel': 21
 }
 
 const boitePercentage = {
-  'automatique': 0.19,
+  'automatique': 19,
   'manuelle': 0
 }
 
@@ -120,7 +120,7 @@ const availablitys = {
     'boite': null
   },
   'citadin': {
-    'carburant': ['electric', 'hybrid', 'essence', 'diesle'],
+    'carburant': ['electric', 'hybrid', 'essence', 'diesel'],
     'boite': 'manuelle'
   },
   'compact': {
@@ -128,19 +128,19 @@ const availablitys = {
     'boite': 'manuelle'
   },
   'berline': {
-    'carburant': ['hybrid', 'essence', 'diesle'],
+    'carburant': ['hybrid', 'essence', 'diesel'],
     'boite': 'automatique'
   },
   'utilitaire': {
-    'carburant': ['diesle'],
+    'carburant': ['diesel'],
     'boite': 'manuelle'
   },
   'engine-de-chantier': {
-    'carburant': ['essence', 'diesle'],
+    'carburant': ['essence', 'diesel'],
     'boite': 'manuelle'
   },
   'camion': {
-    'carburant': ['diesle'],
+    'carburant': ['diesel'],
     'boit': 'automatique'
   }
 }
@@ -169,7 +169,7 @@ let chooseCarburant = (type) => {
       <select name='carburant' title='Carburant' class='btn btn-v select'>
         <option value="carburant" disabled selected>Carburant</option>
       `
-  availablitys[type]['carburant'].forEach(e => carburantHTML += `<option value="${e}">${e}</option>`)
+  availablitys[type]['carburant'].forEach(e => carburantHTML += `<option value="${e}">${e}   +${carburantPercentage[e]}%</option>`)
   carburantHTML += `</select>`
   reservation.innerHTML += carburantHTML;
   const selectCarburant = document.querySelector('select[name="carburant"]')
@@ -187,7 +187,8 @@ let chooseBoite = (type, carburant) => {
       <select name='boite-a-vitess' title='Boite a Vitess' class='btn btn-v select'>
         <option value="boite a vitess" disabled selected>Boite a Vitess</option>
   `
-  boitHTML += `<option value="${availablitys[type]['boite']}">${availablitys[type]['boite']}</option>`
+  Boite = availablitys[type]['boite']
+  boitHTML += `<option value="${availablitys[type]['boite']}">${Boite}   +${boitePercentage[Boite]}%</option>`
   boitHTML +=`</select>`
   reservation.innerHTML += boitHTML
   const selectBoite = document.querySelector('select[name="boite-a-vitess"]')
@@ -215,8 +216,8 @@ let chooseDays = (type, carburant, boite) => {
 
 let calculatePrice = (type, carburant, boite, days) => {
   let price = priceList[type]
-  price += price*carburantPercentage[carburant]
-  price += price*boitePercentage[boite]
+  price += price*carburantPercentage[carburant]/100
+  price += price*boitePercentage[boite]/100
   price *= days
   return price.toFixed(2)
 }
