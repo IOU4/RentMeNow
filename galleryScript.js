@@ -163,7 +163,6 @@ let reservation = document.querySelector('div.reservation')
 let selectType = document.querySelector('select[name="type"]')
 
 let chooseCarburant = (type) => {
-  console.log(type)
   let carburantHTML = `
       <label for="carburant">Choose the Type:</label>
       <select name='carburant' title='Carburant' class='btn btn-v select'>

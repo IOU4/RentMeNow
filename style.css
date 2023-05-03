@@ -4,8 +4,8 @@
   --secondary: #F7F3E8;
   --light: #EBF4F8;
   --black: #2C2738;
-  --box-shadow: 0 .2em 2em -0.9em var(--black);
-  font-size: 26px;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  font-size: 28px;
   font-family: 'Oswald', sans-serif;
   width: 100vw;
   box-sizing: border-box;
@@ -14,7 +14,6 @@ body {
   padding: 0;
   margin: 0;
   margin-left: auto;
-  background-color: var(--secondary);
   color: #2C2738;
   padding: 2em;
   padding-bottom: 0;
@@ -22,19 +21,19 @@ body {
   gap: 2em;
   flex-direction: column;
   align-items: center;
+  min-height: 94vh;
 }
 header {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-width: 960px;
+  width: 100%;
   position: sticky;
   z-index: 10;
+  gap: 2rem;
   top : 0rem;
   backdrop-filter: blur(14px);
-  flex-grow: 1;
   padding: 1em;
-  background: var(--secondary);
 }
 header .logo {
   width: 6em;
@@ -48,14 +47,12 @@ header span {
 }
 header span:hover {
   box-shadow: var(--box-shadow);
-}
-.login {
-  margin-left: auto;
+  border: 0 solid var(--black);
+  border-bottom-width: .1rem;
 }
 .menu-icon-div {
   display: none;
   width: 1.4em;
-  margin-left: auto;
   padding-top: auto;
 }
 .button-div {
@@ -69,8 +66,12 @@ header span:hover {
   border-radius: 6px;
   color: var(--secondary);
   text-align: center;
+  transition: all .2s ease-in;
+}
+.btn:hover, .btn-v:hover {
+  cursor: pointer;
+  outline-width: 1px;
   box-shadow: var(--box-shadow);
-  transition: all .5s ease-in;
 }
 .btn-v {
   font-weight: bold;
@@ -80,12 +81,9 @@ header span:hover {
 }
 .menu {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 40%;
   color: var(--black);
-  margin-left: auto;
-  font-size: .6em;
+  font-size: .7em;
 }
 @media (max-width: 960px) {
   body {
@@ -113,7 +111,6 @@ header span:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* align-items: flex-start; */
   position: relative;
 }
 .car {
@@ -134,7 +131,7 @@ header span:hover {
   white-space: nowrap;
 }
 p {
-  font-size: .5em;
+  font-size: .7em;
 }
 .first-section .button-div {
   margin: 4em 0;
@@ -207,6 +204,7 @@ footer {
   place-items: center;
   border-radius: .3em;
   background-color: var(--light);
+  margin-top: auto;
 }
 footer span {
   font-size: .5em;
