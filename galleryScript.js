@@ -5,90 +5,90 @@ const data = {
       "name": "Cruiser",
       "image": "./assets/images/gta-moto.jpg",
       "brand": "Bently",
-      "type" : "moto",
+      "type": "moto",
       "boite-a-vitess": "automatique",
       "carburant": "essence",
-      "price":  20
+      "price": 20
     },
     {
       "id": 2,
       "name": "old BMW",
       "image": "./assets/images/old-bmw.jpg",
       "brand": "renult",
-      "type" : "berline",
+      "type": "berline",
       "boite-a-vitess": "automatique",
       "carburant": "diesel",
-      "price":  30
-    }, 
+      "price": 30
+    },
     {
       "id": 3,
       "name": "Model s",
       "image": "./assets/images/tesla.jpg",
       "brand": "Tesla",
-      "type" : "citadin",
+      "type": "citadin",
       "boite-a-vitess": "manuelle",
       "carburant": "electric",
-      "price":  90
+      "price": 90
     },
     {
       "id": 4,
       "name": "balck r8",
       "image": "./assets/images/black-audi.jpg",
       "brand": "audi",
-      "type" : "berline",
+      "type": "berline",
       "boite-a-vitess": "automatique",
       "carburant": "hybrid",
-      "price":  70
+      "price": 70
     },
     {
       "id": 5,
       "name": "mini Cooper",
       "image": "./assets/images/electric-mini.jpg",
       "brand": "cooper",
-      "type" : "compact",
+      "type": "compact",
       "boite-a-vitess": "manuelle",
       "carburant": "diesel",
-      "price":  40
+      "price": 40
     },
     {
       "id": 6,
       "name": "tmax",
       "image": "./assets/images/tmax.jpg",
       "brand": "tmax",
-      "type" : "moto",
+      "type": "moto",
       "boite-a-vitess": null,
       "carburant": "diesel",
-      "price":  20
-    }, 
+      "price": 20
+    },
     {
       "id": 7,
       "name": "big-truck",
       "image": "./assets/images/truck-big.jpg",
       "brand": "volvo",
-      "type" : "camion",
+      "type": "camion",
       "boite-a-vitess": "automatique",
       "carburant": "diesel",
-      "price":  94
+      "price": 94
     },
     {
       "id": 8,
       "name": "mutshi",
       "image": "./assets/images/mutshi.jpg",
       "brand": "audi",
-      "type" : "utilitaire",
+      "type": "utilitaire",
       "boite-a-vitess": "manuelle",
       "carburant": "diesel",
-      "price":  50
+      "price": 50
     },
     {
       "id": 9,
       "name": "Snow Mercedes",
       "image": "./assets/images/snow-mercedes.jpg",
       "brand": "mercedes",
-      "type" : "Berline",
+      "type": "Berline",
       "boite-a-vitess": "automatique",
       "carburant": "essence",
-      "price":  50
+      "price": 50
     }
   ]
 };
@@ -145,7 +145,7 @@ const availablitys = {
   }
 }
 
-if(document.title == 'RMN-Gallery'){
+if (document.title == 'RMN-Gallery') {
   let GalleryContainer = document.querySelector('.gallery-container')
   data.vehicles.forEach(item => {
     let galleryItem = document.createElement('div')
@@ -175,20 +175,20 @@ let chooseCarburant = (type) => {
   selectCarburant.addEventListener('change', e => {
     e.preventDefault()
     const carburant = selectCarburant.value
-    chooseBoite(type ,carburant)
+    chooseBoite(type, carburant)
   })
 }
 
 let chooseBoite = (type, carburant) => {
   console.log(carburant)
   let boitHTML = `
-      <label for="boite-a-vitess">Choose the Type:</label>
+      <label for="boite-a-vitess">Choose the Boite:</label>
       <select name='boite-a-vitess' title='Boite a Vitess' class='btn btn-v select'>
         <option value="boite a vitess" disabled selected>Boite a Vitess</option>
   `
   Boite = availablitys[type]['boite']
   boitHTML += `<option value="${availablitys[type]['boite']}">${Boite}   +${boitePercentage[Boite]}%</option>`
-  boitHTML +=`</select>`
+  boitHTML += `</select>`
   reservation.innerHTML += boitHTML
   const selectBoite = document.querySelector('select[name="boite-a-vitess"]')
   selectBoite.addEventListener('change', e => {
@@ -201,7 +201,7 @@ let chooseBoite = (type, carburant) => {
 let chooseDays = (type, carburant, boite) => {
   console.log(boite)
   const daysHTML = `
-      <label for="type">Choose the Type:</label>
+      <label for="type">How many Days:</label>
       <input type="number" min=1 class='btn btn-v select'>
   `
   reservation.innerHTML += daysHTML
@@ -210,13 +210,13 @@ let chooseDays = (type, carburant, boite) => {
     e.preventDefault()
     const days = selectDays.value
     displayPrice(type, carburant, boite, days)
-  }) 
+  })
 }
 
 let calculatePrice = (type, carburant, boite, days) => {
   let price = priceList[type]
-  price += price*carburantPercentage[carburant]/100
-  price += price*boitePercentage[boite]/100
+  price += price * carburantPercentage[carburant] / 100
+  price += price * boitePercentage[boite] / 100
   price *= days
   return price.toFixed(2)
 }
@@ -232,14 +232,14 @@ let getPriceTicket = (type, carburant, boite, days, price) => {
         <span class='res'>${boite}</span>
         <span>Days</span>
         <span class='res'>${days}</span>
-        <button class="btn">${price}$</button>
+        <button class="btn" onclick="() => alert('congrats')">${price}$</button>
       </div>
   `
 }
 
 let displayPrice = (type, carburant, boite, days) => {
   console.log(days)
-  if(document.querySelector('.ticket-div'))
+  if (document.querySelector('.ticket-div'))
     reservation.lastChild.remove()
   reservation.innerHTML += getPriceTicket(type, carburant, boite, days, calculatePrice(type, carburant, boite, days))
 }
